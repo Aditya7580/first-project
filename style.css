@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  background-image: url("../img/memphis-mini-dark.png");
+  background-color: #101010;
+  color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-family: "Oswald", sans-serif;
+}
+
+.wrapper {
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+:root {
+  /* Zap properties */
+  --zap-width: 900px;
+  --zap-height: 5px;
+  --zap-colour: #ea1646;
+  --zap-background: #202020;
+  --zap-duration: 2.5s;
+  --zap-timing-fn: ease-in-out;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --zap-width: 450px;
+  }
+}
+
+#vis-canvas {
+  position: fixed;
+  z-index: 0;
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  height: 200px;
+  line-height: 200px;
+  margin: 0;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 50px;
+  height: 100px;
+  line-height: 100px;
+}
+
+footer p {
+  margin: 0px;
+  pointer-events: none;
+}
+
+a {
+  color: white;
+  pointer-events: auto;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.zap {
+  width: var(--zap-width);
+  height: var(--zap-height);
+  background-color: var(--zap-background);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--zap-height);
+}
+
+.zap::before {
+  content: "";
+  position: absolute;
+  width: var(--zap-width);
+  height: var(--zap-height);
+  background-color: var(--zap-colour);
+  animation: zap var(--zap-duration) var(--zap-timing-fn) infinite;
+}
+
+.list {
+  pointer-events: auto;
+}
+
+.list input {
+  border: none;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 4px 0px 0px 4px;
+}
+
+.list button {
+  border: none;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 0px 4px 4px 0px;
+  background-color: var(--zap-colour);
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@keyframes zap {
+  0% {
+    left: calc(var(--zap-width) * -1);
+  }
+  5% {
+    left: calc(var(--zap-width) * -1);
+  }
+  45% {
+    left: var(--zap-width);
+  }
+  55% {
+    left: var(--zap-width);
+  }
+  95% {
+    left: calc(var(--zap-width) * -1);
+  }
+  100% {
+    left: calc(var(--zap-width) * -1);
+  }
+}
